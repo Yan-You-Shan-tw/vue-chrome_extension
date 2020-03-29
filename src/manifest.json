@@ -1,0 +1,26 @@
+{
+  "name": "臉書小擴件",
+  "description": "擴充元件--使用vue-web-extension, 請到臉書啟動擴件",
+  "version": "2.0",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "page_action": {
+    "default_title": "臉書小擴件",
+    "default_icon": "icons/icon_128.png",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": [ "background.js"],
+    "persistent": false
+  },
+  "content_scripts" : [ 
+		{
+			"matches" : ["*://www.facebook.com/*"],
+			"js" : ["content.js"]
+		}
+  ],
+  "permissions" : ["tabs", "activeTab", "storage", "unlimitedStorage"]
+}
